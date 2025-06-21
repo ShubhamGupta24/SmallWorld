@@ -1,6 +1,7 @@
 import { KonkhmerSleokchher_400Regular, useFonts } from '@expo-google-fonts/konkhmer-sleokchher';
 import { Feather } from '@expo/vector-icons'; // for eye icon
 import Checkbox from 'expo-checkbox';
+import { useRouter } from 'expo-router';
 import React, { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import {
@@ -22,6 +23,8 @@ interface LoginFormData {
 }
 
 export default function LoginScreen() {
+  const router = useRouter();
+  
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
@@ -129,7 +132,7 @@ export default function LoginScreen() {
           </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => Alert.alert('Sign Up')}>
+        <TouchableOpacity onPress={() => router.push('/signup')}>
           <Text style={styles.linkCenter}>No Account? Sign Up</Text>
         </TouchableOpacity>
       </View>

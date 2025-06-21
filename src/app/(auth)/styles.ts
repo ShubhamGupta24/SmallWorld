@@ -73,6 +73,7 @@ const styles = StyleSheet.create({
   passwordContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    paddingVertical: 20,
   },
   eyeIcon: {
     position: 'absolute',
@@ -121,6 +122,38 @@ const styles = StyleSheet.create({
     marginTop: 20,
     fontSize: 14,
   },
+  divider:{
+    alignItems: 'center',
+    marginVertical: 30,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    paddingHorizontal: 20,
+  },
+  lines:{ flex: 1, height: 1, backgroundColor: '#ccc' },
+  continue:{ marginHorizontal: 10, color: '#888' },
+  socialIconsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: 20,
+      },
+  linearGradient: {
+    width: 45,
+    height: 45,
+    borderRadius: 22.5,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  googleIconContainer: {
+    width: 45,
+    height: 45,
+    borderRadius: 22.5,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: '#ccc',
+  }
 });
 
 
