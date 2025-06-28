@@ -18,12 +18,13 @@ const auth = () => {
   let loading_timeout =()=>{
     setIsLoading(true);
     setTimeout(() => {
-     router.push('/(auth)/login');
+     router.push('/(auth)/welcome');
     }, 3000);
   }
   
   useEffect(() => {
-    setTimeout(loading_timeout, 2000);
+    const timeout = setTimeout(loading_timeout, 2000);
+    return ()=>clearTimeout(timeout)
   }, []);
 
   if (!fontsLoaded) {
