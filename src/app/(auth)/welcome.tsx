@@ -2,6 +2,7 @@
 import AutoScrollColumn from '@/src/components/atoms/AutoScrollColumn';
 import RadialGradientBackground from '@/src/components/atoms/RadialGradientBackground';
 import FontAwesome6 from '@expo/vector-icons/build/FontAwesome6';
+import { LinearGradient } from 'expo-linear-gradient';
 import { router } from 'expo-router';
 import React from 'react';
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
@@ -32,13 +33,27 @@ const EventsLandingPage: React.FC = () => {
         {/* Header */}
         <View style={styles.header}>
           <Text style={styles.title}>WELCOME TO THE WORLD OF BOUTIQUE EVENTS. </Text>
-          <TouchableOpacity onPress={()=>{router.push('/login')}}>
-          <FontAwesome6 name="arrow-right-long" size={50} color="#D1D1FF" />
+          <TouchableOpacity onPress={() => { router.push('/login') }}>
+            <FontAwesome6 name="arrow-right-long" size={50} color="#D1D1FF" />
           </TouchableOpacity>
         </View>
 
-        {/* Main Gallery */}
+        {/* Main Gallery with Fading Overlays */}
         <View style={styles.galleryContainer}>
+          {/* Top Fade */}
+          <LinearGradient
+            colors={['#000', 'transparent']}
+            style={styles.topFade}
+            pointerEvents="none"
+          />
+          {/* Bottom Fade */}
+          <LinearGradient
+            colors={['transparent', '#000']}
+            style={styles.bottomFade}
+            pointerEvents="none"
+          />
+
+          {/* Columns */}
           <AutoScrollColumn
             images={mainGalleryImages.slice(0, 3)}
             delay={0}
@@ -87,6 +102,26 @@ const styles = StyleSheet.create({
     margin: 15,
     height: moderateScale(500),
     overflow: 'hidden',
+    position: 'relative',
+    borderRadius: 15,
+  },
+  topFade: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    height: 60,
+    zIndex: 10,
+    opacity: 0.8,
+  },
+  bottomFade: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    height: 60,
+    zIndex: 10,
+    opacity: 0.8,
   },
   brand: {
     color: 'white',
